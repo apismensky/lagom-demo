@@ -10,6 +10,7 @@ import scala.concurrent.Future
 
 class ImageServiceImpl extends ImageService {
   override def getImage(id: String): ServiceCall[NotUsed, Image] = { request =>
+    println(s"Calling ImageAPI: $id")
     Future(Image(id.toLong, s"http://site.com/image/small/$id", s"http://site.com/image/large/$id"))
   }
 }

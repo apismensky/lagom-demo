@@ -11,3 +11,7 @@ bin
 .factorypath
 .settings
 logs
+/.idea
+/*.iml
+/out
+/.idea_modules

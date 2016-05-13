@@ -9,13 +9,14 @@ lazy val userApi = project("user-api")
      version := "1.0-SNAPSHOT",
      libraryDependencies += lagomJavadslApi
    )
+  .dependsOn(imageApi)
 
 lazy val userImpl = project("user-impl")
    .enablePlugins(LagomJava)
    .settings(
      version := "1.0-SNAPSHOT"
    )
-  .dependsOn(userApi, utils)
+  .dependsOn(userApi, utils, imageApi)
 
 lazy val imageApi = project("image-api")
   .settings(
