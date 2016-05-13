@@ -3,7 +3,6 @@ package com.octanner.image.impl
 import akka.NotUsed
 import com.lightbend.lagom.javadsl.api.ServiceCall
 import com.octanner.image.api.{Image, ImageService}
-import com.octanner.user.api.{User, ImageService}
 import converter.ServiceCallConverter._
 import scala.concurrent.ExecutionContext.Implicits.global
 

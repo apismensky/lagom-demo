@@ -1,4 +1,4 @@
-package com.octanner.image.impl
+package com.octanner.user.impl
 
 import com.google.inject.AbstractModule
 import com.lightbend.lagom.javadsl.server.ServiceGuiceSupport
