@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="SBT: com.fasterxml.jackson.module:jackson-module-parameter-names:2.7.2:jar">
+    <CLASSES>
+      <root url="jar://$IVY_REPO$/cache/com.fasterxml.jackson.module/jackson-module-parameter-names/bundles/jackson-module-parameter-names-2.7.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

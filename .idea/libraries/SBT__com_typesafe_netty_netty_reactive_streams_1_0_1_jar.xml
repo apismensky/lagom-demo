@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="SBT: com.typesafe.netty:netty-reactive-streams:1.0.1:jar">
+    <CLASSES>
+      <root url="jar://$IVY_REPO$/cache/com.typesafe.netty/netty-reactive-streams/jars/netty-reactive-streams-1.0.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
