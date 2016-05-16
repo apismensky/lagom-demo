@@ -13,7 +13,6 @@ trait ImageService extends Service {
     named("imageapi").`with`(
       pathCall("/api/images/:id", getImage _)
     ).withAutoAcl(true)
-    // @formatter:on
   }
 
 }
