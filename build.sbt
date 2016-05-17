@@ -3,14 +3,15 @@ organization in ThisBuild := "sample.octanner"
 lazy val userApi = project("user-api")
    .settings(
      version := "1.0-SNAPSHOT",
-     libraryDependencies ++= Seq(lagomJavadslApi, lagomJavadslPersistence)
+     libraryDependencies += lagomJavadslApi
    )
   .dependsOn(imageApi)
 
 lazy val userImpl = project("user-impl")
    .enablePlugins(LagomJava)
    .settings(
-     version := "1.0-SNAPSHOT"
+     version := "1.0-SNAPSHOT",
+     libraryDependencies += lagomJavadslPersistence
    )
   .dependsOn(userApi, utils, imageApi)
 
