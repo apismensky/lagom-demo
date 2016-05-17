@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="SBT: com.lightbend.lagom:lagom-javadsl-api_2.11:1.0.0-M2:jar">
-    <CLASSES>
-      <root url="jar://$IVY_REPO$/cache/com.lightbend.lagom/lagom-javadsl-api_2.11/jars/lagom-javadsl-api_2.11-1.0.0-M2.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

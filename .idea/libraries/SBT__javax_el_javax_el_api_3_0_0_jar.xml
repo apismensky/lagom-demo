@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="SBT: javax.el:javax.el-api:3.0.0:jar">
-    <CLASSES>
-      <root url="jar://$IVY_REPO$/cache/javax.el/javax.el-api/jars/javax.el-api-3.0.0.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="SBT: org.apache.tomcat:tomcat-servlet-api:8.0.32:jar">
-    <CLASSES>
-      <root url="jar://$IVY_REPO$/cache/org.apache.tomcat/tomcat-servlet-api/jars/tomcat-servlet-api-8.0.32.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

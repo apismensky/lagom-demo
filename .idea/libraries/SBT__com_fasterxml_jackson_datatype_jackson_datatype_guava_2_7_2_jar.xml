@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="SBT: com.fasterxml.jackson.datatype:jackson-datatype-guava:2.7.2:jar">
-    <CLASSES>
-      <root url="jar://$IVY_REPO$/cache/com.fasterxml.jackson.datatype/jackson-datatype-guava/bundles/jackson-datatype-guava-2.7.2.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

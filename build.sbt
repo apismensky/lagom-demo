@@ -1,3 +1,5 @@
+import sbt.Keys._
+
 organization in ThisBuild := "sample.octanner"
 
 lazy val userApi = project("user-api")
@@ -24,7 +26,13 @@ lazy val imageApi = project("image-api")
 lazy val imageImpl = project("image-impl")
   .enablePlugins(LagomJava)
   .settings(
-    version := "1.0-SNAPSHOT"
+    version := "1.0-SNAPSHOT",
+    libraryDependencies ++= Seq(
+      jdbc,
+      evolutions,
+      "org.postgresql" % "postgresql" % "9.4.1207",
+      "com.typesafe.play" %% "anorm" % "2.4.0"
+    )
   )
   .dependsOn(imageApi, utils)
 

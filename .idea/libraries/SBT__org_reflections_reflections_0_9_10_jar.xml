@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="SBT: org.reflections:reflections:0.9.10:jar">
-    <CLASSES>
-      <root url="jar://$IVY_REPO$/cache/org.reflections/reflections/jars/reflections-0.9.10.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

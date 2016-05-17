@@ -7,10 +7,12 @@ import com.lightbend.lagom.javadsl.api.{Descriptor, Service, ServiceCall}
 
 trait ImageService extends Service {
 
-  def getImage(id: String): ServiceCall[NotUsed, Image]
+  def getImage(id: Long): ServiceCall[NotUsed, Image]
+  def health(): ServiceCall[NotUsed, String]
 
   override def descriptor(): Descriptor = {
     named("imageapi").`with`(
+      pathCall("/api/images/health", health _),
       pathCall("/api/images/:id", getImage _)
     ).withAutoAcl(true)
   }

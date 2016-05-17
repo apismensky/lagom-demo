@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="SBT: org.pcollections:pcollections:2.1.2:jar">
-    <CLASSES>
-      <root url="jar://$IVY_REPO$/cache/org.pcollections/pcollections/jars/pcollections-2.1.2.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

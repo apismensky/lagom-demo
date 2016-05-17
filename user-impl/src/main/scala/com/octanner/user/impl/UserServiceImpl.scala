@@ -1,6 +1,6 @@
 package com.octanner.user.impl
 
-import akka.NotUsed
+import akka.{Done, NotUsed}
 import com.google.inject.Inject
 import com.lightbend.lagom.javadsl.api.ServiceCall
 import com.lightbend.lagom.javadsl.api.transport.NotFound
@@ -15,17 +15,20 @@ class UserServiceImpl @Inject()(imageService: ImageService,
 
   persistentEntities.register(classOf[UserEntity])
 
-  override def getUser(id: String): ServiceCall[NotUsed, User] = { request =>
-    println(s"Calling UserAPI: $id")
-
-    val futureImage = imageService.getImage(id).invoke()
-    futureImage.flatMap { im =>
-      friendEntityRef(id).ask[GetUserReply, GetUser](GetUser())
-        .map {_.user.getOrElse(throw new NotFound(s"user $id not found")).copy(image = im)}
+  override def getUser(id: Long): ServiceCall[NotUsed, User] = { request =>
+    println(s"Calling GET /api/users/$id")
+    imageService.getImage(id).invoke() flatMap { im =>
+      userEntityRef(id).ask[GetUserReply, GetUser](GetUser())
+        .map {_.user.getOrElse(throw new NotFound(s"user $id not found")).copy(image = Some(im))}
     }
   }
 
-  private def friendEntityRef(userId: String) =
-    persistentEntities.refFor(classOf[UserEntity], userId)
+  override def createUser(): ServiceCall[User, NotUsed] = { request =>
+    println(s"Calling POST /api/users")
+    userEntityRef(request.userId).ask[Done, CreateUser](CreateUser(request))
+  }
+
+  private def userEntityRef(userId: Long) =
+    persistentEntities.refFor(classOf[UserEntity], userId.toString)
 
 }

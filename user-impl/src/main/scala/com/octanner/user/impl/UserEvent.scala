@@ -1,6 +1,3 @@
-/*
- * Copyright (C) 2016 Lightbend Inc. <http://www.lightbend.com>
- */
 package com.octanner.user.impl
 
 import com.lightbend.lagom.javadsl.persistence.AggregateEvent
@@ -14,3 +11,9 @@ object UserEvent {
 sealed trait UserEvent extends AggregateEvent[UserEvent] with Jsonable {
   override def aggregateTag(): AggregateEventTag[UserEvent] = UserEvent.Tag
 }
+
+case class UserCreated(userId: Long,
+                       firstName: String,
+                       lastName: String,
+                       email: String,
+                       timestamp: Instant = Instant.now()) extends UserEvent
