@@ -8,16 +8,14 @@ import play.api.db.DBApi
 
 class ImageDao  @Inject() (dBApi: DBApi) {
   private val db = dBApi.database("default")
-  val select = "SELECT USER_ID, URL_SMALL, URL_LARGE FROM IMAGES"
 
-  val imageParser = get[Long]("USER_ID") ~
-    get[String]("URL_SMALL") ~
+  val imageParser = get[String]("URL_SMALL") ~
     get[String]("URL_LARGE") map {
-    case userId ~ urlSmall ~ urlLarge => Image(userId, urlSmall, urlSmall)
+    case urlSmall ~ urlLarge => Image(urlSmall, urlLarge)
   }
 
   def getByUserId(userId: Long): Option[Image] = db.withConnection { implicit connection =>
-    SQL(s"$select WHERE USER_ID={userId}").on('userId -> userId).as(imageParser.singleOpt)
+    SQL(s"SELECT URL_SMALL, URL_LARGE FROM IMAGES WHERE USER_ID={userId}").on('userId -> userId).as(imageParser.singleOpt)
   }
 
   def isHealthy: Boolean = db.withConnection { implicit connection =>

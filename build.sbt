@@ -30,7 +30,6 @@ lazy val imageImpl = project("image-impl")
     libraryDependencies ++= Seq(
       jdbc,
       evolutions,
-      "org.postgresql" % "postgresql" % "9.4.1207",
       "com.typesafe.play" %% "anorm" % "2.4.0"
     )
   )
