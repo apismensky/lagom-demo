@@ -13,7 +13,7 @@ lazy val userImpl = project("user-impl")
    .enablePlugins(LagomJava)
    .settings(
      version := "1.0-SNAPSHOT",
-     libraryDependencies += lagomJavadslPersistence
+     libraryDependencies += lagomJavadslPersistence // To use Persistent Entity of the Lagom
    )
   .dependsOn(userApi, utils, imageApi)
 
@@ -57,4 +57,7 @@ def project(id: String) = Project(id, base = file(id))
 lazy val jacksonParameterNamesJavacSettings = Seq(
   javacOptions in compile += "-parameters"
 )
+
+// do not delete database files on start
+lagomCassandraCleanOnStart in ThisBuild := false
 
