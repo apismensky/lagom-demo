@@ -15,13 +15,10 @@ import scala.collection.JavaConverters._
 // To access an entity from a service implementation you first need to inject the PersistentEntityRegistry
 class UserServiceImpl @Inject()(imageService: ImageService,
                                 persistentEntities: PersistentEntityRegistry,
-                                readSide: CassandraReadSide,
                                 db: CassandraSession)(implicit ec: ExecutionContext) extends UserService {
 
   // And at startup (in the constructor) register the class that implements the PersistentEntity
   persistentEntities.register(classOf[UserEntity])
-
-  //readSide.register(classOf[UserEventProcessor])
 
   override def getUser(id: Long): ServiceCall[NotUsed, User] = { request =>
     println(s"Calling GET /api/users/$id")

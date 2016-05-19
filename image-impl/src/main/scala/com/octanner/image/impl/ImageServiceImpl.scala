@@ -14,7 +14,8 @@ import scala.concurrent.Future
 class ImageServiceImpl @Inject()(imageDao: ImageDao) extends ImageService {
   override def getImage(id: Long): ServiceCall[NotUsed, Image] = { request =>
     println(s"Calling GET /api/images/$id")
-    val image = imageDao.getByUserId(id).getOrElse(throw new IllegalArgumentException(s"Can not find image for userId: $id"))
+    val image = imageDao.getByUserId(id)
+      .getOrElse(throw new IllegalArgumentException(s"Can not find image for userId: $id"))
     Future(image)
   }
 
