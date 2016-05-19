@@ -12,8 +12,8 @@ trait ImageService extends Service {
 
   override def descriptor(): Descriptor = {
     named("imageapi").`with`(
-      pathCall("/api/images/health", health _),
-      pathCall("/api/images/:id", getImage _)
+      pathCall("/api/health", health _),
+      pathCall("/api/users/:id/images", getImage _)
     ).withAutoAcl(true)
   }
 
