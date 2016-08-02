@@ -10,7 +10,6 @@ import com.octanner.image.api.ImageService
 import com.octanner.user.api.{User, UserService}
 import converter.ServiceCallConverter._
 import scala.concurrent.ExecutionContext
-import scala.collection.JavaConverters._
 
 // To access an entity from a service implementation you first need to inject the PersistentEntityRegistry
 class UserServiceImpl @Inject()(imageService: ImageService,
@@ -40,10 +39,4 @@ class UserServiceImpl @Inject()(imageService: ImageService,
   private def userEntityRef(userId: Long) =
     persistentEntities.refFor(classOf[UserEntity], userId.toString)
 
-  override def users() = { request =>
-    db.selectAll("SELECT userId, firstName, lastName, email FROM users;").map { jrows =>
-      val rows = jrows.asScala.toVector
-      rows.map { row =>  User(row.getLong("userId"), row.getString("firstName"), row.getString("lastName"), row.getString("email"), None)}
-    }
-  }
 }

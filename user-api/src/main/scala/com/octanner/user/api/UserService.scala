@@ -16,12 +16,9 @@ trait UserService extends Service {
     */
   def createUser(): ServiceCall[User, NotUsed]
 
-  def users(): ServiceCall[NotUsed, Seq[User]]
-
   override def descriptor(): Descriptor = {
     named("userapi").`with`(
       pathCall("/api/users/:id", getUser _),
-      namedCall("/api/users", users _),
       namedCall("/api/users", createUser _)
     ).withAutoAcl(true)
     // @formatter:on

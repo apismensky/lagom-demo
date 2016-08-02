@@ -18,7 +18,7 @@ import scala.collection.immutable.Seq
   */
 class UserEntity extends PersistentEntity[UserCommand, UserEvent, UserState] {
   override def initialBehavior(snapshotState: Optional[UserState]): Behavior = {
-   //When the entity is started the state is recovered by replaying stored events.
+   // When the entity is started the state is recovered by replaying stored events.
    // To reduce this recovery time the entity may start the recovery from a snapshot of the state
    // and then only replaying the events that were stored after the snapshot.
     val b = newBehaviorBuilder(snapshotState.orElseGet(() => UserState(Option.empty)))
